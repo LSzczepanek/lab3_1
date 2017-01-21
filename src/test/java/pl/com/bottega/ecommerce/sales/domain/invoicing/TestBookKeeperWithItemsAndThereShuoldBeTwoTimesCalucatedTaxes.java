@@ -42,6 +42,11 @@ public class TestBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes {
     @Mock
     Tax tax;
     
+    @Before
+    public void before(){
+    	
+    }
+    
     
     
 }
