@@ -70,6 +70,7 @@ public class TestBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes {
 	
 	@Test
 	public void testBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes(){
+		bookKeeper.issuance(invRequest, taxPolicy);
 		verify(taxPolicy, times(2)).calculateTax(any(ProductType.class),any(Money.class));
 	}
     
