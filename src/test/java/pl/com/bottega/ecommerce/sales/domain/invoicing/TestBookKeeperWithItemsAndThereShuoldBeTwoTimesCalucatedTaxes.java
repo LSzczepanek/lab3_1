@@ -23,4 +23,25 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
 
 public class TestBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes {
 
+    @Mock
+    BookKeeper bookKeeper;
+    @Mock
+    InvoiceFactory invFactory;
+    @Mock
+    InvoiceRequest invRequest;
+    @Mock
+    RequestItem requestItem;
+    @Mock
+    Invoice invoice;
+    @Mock
+    TaxPolicy taxPolicy;
+    @Mock
+    ProductData productData;
+    @Mock
+    Money money;
+    @Mock
+    Tax tax;
+    
+    
+    
 }
