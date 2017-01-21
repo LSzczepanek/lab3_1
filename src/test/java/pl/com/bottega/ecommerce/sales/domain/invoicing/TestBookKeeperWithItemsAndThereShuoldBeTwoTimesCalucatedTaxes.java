@@ -50,7 +50,9 @@ public class TestBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes {
         invFactory = new InvoiceFactory();
         bookKeeper = new BookKeeper(invFactory);
         invRequest = mock(InvoiceRequest.class);
+        
         requestItem = mock(RequestItem.class);
+        
         requestItem2 = mock(RequestItem.class);
         taxPolicy = mock(TaxPolicy.class);
         productData = mock(ProductData.class);
@@ -59,18 +61,33 @@ public class TestBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes {
         invoice = bookKeeper.issuance(invRequest, taxPolicy);
         ArrayList<RequestItem> requestItems = new ArrayList<>();
         requestItems.add(requestItem);
+        requestItems.add(requestItem2);
         when(invRequest.getItems()).thenReturn(requestItems);
-        when(invRequest.getClientData()).thenReturn(new ClientData(new Id(""),""));
+        when(invRequest.getClientData()).thenReturn(mock(ClientData.class));
         when(requestItem.getProductData()).thenReturn(productData);
         when(requestItem.getTotalCost()).thenReturn(Money.ZERO);
         when(tax.getAmount()).thenReturn(Money.ZERO);
         when(taxPolicy.calculateTax(any(ProductType.class),any(Money.class))).thenReturn(tax);    
 
+        bookKeeper.issuance(invRequest, taxPolicy);
+        
+        
+        
+        
+        //when(requestItem.getProductData()).thenReturn(mock(ProductData.class));
+        //when(requestItem.getTotalCost()).thenReturn(Money.ZERO);
+        //InvoiceRequest invoiceRequest = mock(InvoiceRequest.class);
+        //when(invRequest.getClientData()).thenReturn(mock(ClientData.class));
+       // when(invRequest.getItems()).thenReturn(Lists.newArrayList(requestItem, requestItem));
+        //Tax tax = mock(Tax.class);
+        //when(tax.getAmount()).thenReturn(Money.ZERO);
+        //TaxPolicy taxPolicy = mock(TaxPolicy.class);
+        //when(taxPolicy.calculateTax(any(ProductType.class),any(Money.class))).thenReturn(tax);
 	}
 	
 	@Test
 	public void testBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes(){
-		bookKeeper.issuance(invRequest, taxPolicy);
+		
 		verify(taxPolicy, times(2)).calculateTax(any(ProductType.class),any(Money.class));
 	}
     
