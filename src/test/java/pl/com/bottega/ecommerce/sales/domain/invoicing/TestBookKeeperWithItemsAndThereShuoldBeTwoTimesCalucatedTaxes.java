@@ -42,9 +42,9 @@ public class TestBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes {
     @Mock
     Tax tax;
     
-    @Before
-    public void before(){
-    	invFactory = new InvoiceFactory();
+	@Before
+	public void before(){
+        invFactory = new InvoiceFactory();
         bookKeeper = new BookKeeper(invFactory);
         invRequest = mock(InvoiceRequest.class);
         requestItem = mock(RequestItem.class);
@@ -55,8 +55,19 @@ public class TestBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes {
         invoice = bookKeeper.issuance(invRequest, taxPolicy);
         ArrayList<RequestItem> requestItems = new ArrayList<>();
         requestItems.add(requestItem);
-    }
-    
+        when(invRequest.getItems()).thenReturn(requestItems);
+        when(invRequest.getClientData()).thenReturn(new ClientData(new Id(""),""));
+        when(requestItem.getProductData()).thenReturn(productData);
+        when(requestItem.getTotalCost()).thenReturn(Money.ZERO);
+        when(tax.getAmount()).thenReturn(Money.ZERO);
+        when(taxPolicy.calculateTax(any(ProductType.class),any(Money.class))).thenReturn(tax);    
+
+	}
+	
+	@Test
+	public void testBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes(){
+		
+	}
     
     
 }
