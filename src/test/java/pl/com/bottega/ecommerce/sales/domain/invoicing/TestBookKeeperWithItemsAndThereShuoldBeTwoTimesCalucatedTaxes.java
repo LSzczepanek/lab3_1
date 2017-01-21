@@ -44,7 +44,17 @@ public class TestBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes {
     
     @Before
     public void before(){
-    	
+    	invFactory = new InvoiceFactory();
+        bookKeeper = new BookKeeper(invFactory);
+        invRequest = mock(InvoiceRequest.class);
+        requestItem = mock(RequestItem.class);
+        taxPolicy = mock(TaxPolicy.class);
+        productData = mock(ProductData.class);
+        money = mock(Money.class);
+        tax = mock(Tax.class);
+        invoice = bookKeeper.issuance(invRequest, taxPolicy);
+        ArrayList<RequestItem> requestItems = new ArrayList<>();
+        requestItems.add(requestItem);
     }
     
     
