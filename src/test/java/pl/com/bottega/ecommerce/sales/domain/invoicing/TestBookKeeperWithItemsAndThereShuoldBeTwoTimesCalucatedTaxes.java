@@ -6,6 +6,7 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 
@@ -69,7 +70,7 @@ public class TestBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes {
 	
 	@Test
 	public void testBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes(){
-		assertThat(invoice.getItems().size(), is(equalTo(2)));
+		verify(taxPolicy, times(2)).calculateTax(any(ProductType.class),any(Money.class));
 	}
     
     
