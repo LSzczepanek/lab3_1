@@ -1,23 +1,45 @@
 package lab3_1;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.mockito.MockitoAnnotations.initMocks;
 
-import pl.com.bottega.ecommerce.sales.domain.invoicing.BookKeeper;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.Request;
+import org.mockito.Mock;
+
+import pl.com.bottega.ecommerce.sales.domain.invoicing.*;
+
 
 public class TestBookKeeper {
-
+	
+	
 	BookKeeper bookKeeper;
 	
+	@Mock
+	InvoiceFactory invFactory;
 	
-	@Before
-	public static void before(){
+	@Mock
+	InvoiceRequest incReq;
+	
+	@Mock
+	Invoice invoice;
+	
+	
+	@BeforeClass
+	public void before(){
+		initMocks(this);// Initialize this mock objects
 		
 	}
 	
+	@Before
+	public void beforeMethod(){
+		bookKeeper = new BookKeeper(invFactory);
+		
+	}
 	
 	@Test
-	public static void testOneInvoiceRequest(){
+	public void testOneInvoiceRequest(){
 		
 	}
 }
