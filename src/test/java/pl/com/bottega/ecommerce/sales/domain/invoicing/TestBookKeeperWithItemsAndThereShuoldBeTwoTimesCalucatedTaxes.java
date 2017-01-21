@@ -32,6 +32,8 @@ public class TestBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes {
     @Mock
     RequestItem requestItem;
     @Mock
+    RequestItem requestItem2;
+    @Mock
     Invoice invoice;
     @Mock
     TaxPolicy taxPolicy;
@@ -48,6 +50,7 @@ public class TestBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes {
         bookKeeper = new BookKeeper(invFactory);
         invRequest = mock(InvoiceRequest.class);
         requestItem = mock(RequestItem.class);
+        requestItem2 = mock(RequestItem.class);
         taxPolicy = mock(TaxPolicy.class);
         productData = mock(ProductData.class);
         money = mock(Money.class);
