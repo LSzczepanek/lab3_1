@@ -20,7 +20,7 @@ import pl.com.bottega.ecommerce.sales.domain.productscatalog.ProductType;
 import pl.com.bottega.ecommerce.sharedkernel.Money;
 
 
-public class TestBookKeeper {
+public class TestBookKeeperForSingleInvoiceDataType {
 	
     @Mock
     BookKeeper bookKeeper;
