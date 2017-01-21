@@ -66,7 +66,7 @@ public class TestBookKeeperForSingleInvoiceDataType {
 	}
 	
     @Test
-    public void testOneInvoiceRequest() {
+    public void testBookKeeperForSingleInvoiceDataType() {
 
         assertThat(invoice.getItems().size(), is(equalTo(1)));
     }
