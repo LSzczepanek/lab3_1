@@ -69,7 +69,7 @@ public class TestBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes {
 	
 	@Test
 	public void testBookKeeperWithItemsAndThereShuoldBeTwoTimesCalucatedTaxes(){
-		
+		assertThat(invoice.getItems().size(), is(equalTo(2)));
 	}
     
     
